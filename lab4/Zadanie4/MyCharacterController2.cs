@@ -39,7 +39,8 @@ public sealed class MyCharacterController2 : MonoBehaviour
         _rotationAngles += GetMouseDelta().normalized * _speedCamera;
         _rotationAngles.y = Mathf.Clamp(_rotationAngles.y, -90f, 90f);
 
-        _transform.rotation = Quaternion.Euler(new Vector3(_rotationAngles.y, -_rotationAngles.x, 0f));
+        _transform.rotation = Quaternion.Euler(0f, -_rotationAngles.x, 0f);
+        _transformCamera.localRotation = Quaternion.Euler(_rotationAngles.y, 0f, 0f);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
